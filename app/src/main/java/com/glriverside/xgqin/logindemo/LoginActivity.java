@@ -1,6 +1,7 @@
 package com.glriverside.xgqin.logindemo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -16,11 +17,15 @@ import android.widget.ImageView;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
+    public static final String USER_NAME = "com.glriverside.xgqin.logindemo.KEY.USER_NAME";
     private Boolean bPwdSwitch = false;
 
     private EditText etPwd;
     private EditText etAccount;
     private CheckBox cbRememberPwd;
+
+    String account;
+    String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +82,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 SharedPreferences spFile = getSharedPreferences(getResources().getString(R.string.shared_preferences_file_name), Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = spFile.edit();
 
-                if (cbRememberPwd.isChecked()) {
-                    String password = etPwd.getText().toString();
-                    String account = etAccount.getText().toString();
+                password = etPwd.getText().toString();
+                account = etAccount.getText().toString();
 
+                if (cbRememberPwd.isChecked()) {
                     editor.putString(getResources().getString(R.string.login_account_name), account);
                     editor.putString(getResources().getString(R.string.login_password), password);
                     editor.putBoolean(getResources().getString(R.string.login_remember_password), true);
@@ -91,6 +96,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     editor.remove(getResources().getString(R.string.login_remember_password));
                     editor.apply();
                 }
+
+                Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                mainIntent.putExtra(USER_NAME, account);
+                startActivity(mainIntent);
+
                 break;
             default:
                 break;

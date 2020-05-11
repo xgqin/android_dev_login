@@ -39,7 +39,7 @@
             android:id="@+id/et_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="6dp"
             android:layout_alignParentBottom="true"
             android:background="@null"
             android:textCursorDrawable="@drawable/ic_cursor_24dp"
@@ -75,7 +75,7 @@
             android:id="@+id/et_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="6dp"
             android:layout_alignParentBottom="true"
             android:inputType="textPassword"
             android:background="@null"
@@ -138,10 +138,10 @@
             android:id="@+id/bt_login"
             android:text="Login"
             android:textColor="@android:color/white"
-            android:background="@color/colorPrimary"
             android:layout_marginTop="32dp"
+            android:background="@drawable/btn_bg_selector"
             android:layout_alignParentTop="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="@dimen/button_height" />
     </RelativeLayout>
 </LinearLayout>
