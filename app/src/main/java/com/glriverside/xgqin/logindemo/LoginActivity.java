@@ -3,7 +3,7 @@ package com.glriverside.xgqin.logindemo;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.InputType;
@@ -27,8 +27,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final ImageView ivPwdSwitch = findViewById(R.id.iv_pwd_switch);
-        etPwd = findViewById(R.id.et_pwd);
+        etPwd = findViewById(R.id.et_password);
         etAccount = findViewById(R.id.et_account);
         cbRememberPwd = findViewById(R.id.cb_remember_pwd);
 
@@ -46,22 +45,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         cbRememberPwd.setChecked(rememberPassword);
-
-        ivPwdSwitch.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                bPwdSwitch = !bPwdSwitch;
-                if (bPwdSwitch) {
-                    ivPwdSwitch.setImageResource(R.drawable.ic_visibility_black_24dp);
-                    etPwd.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                } else {
-                    ivPwdSwitch.setImageResource(R.drawable.ic_visibility_off_black_24dp);
-                    etPwd.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD | InputType.TYPE_CLASS_TEXT);
-                    etPwd.setTypeface(Typeface.DEFAULT);
-                }
-            }
-        });
 
         Button btLogin = findViewById(R.id.bt_login);
         if (btLogin != null) {

@@ -5,4 +5,6 @@
     <string name="login_account_name">login_account_name</string>
     <string name="login_password">login_password</string>
     <string name="login_remember_password">login_remember_password</string>
+    <string name="textfield_account">Account/Email</string>
+    <string name="textfield_password">Password</string>
 </resources>
